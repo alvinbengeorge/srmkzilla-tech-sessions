@@ -1,5 +1,6 @@
 import express from "express";
 import { nanoid } from "nanoid";
+import fs from "fs";
 const app = express()
 app.use(express.json())
 
@@ -23,6 +24,44 @@ function authentication(req, res) {
     }
 }
 
+function saveToFile() {
+    saveKeys();
+    fs.writeFile("tasks.json", JSON.stringify(tasks), err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Done")
+        }
+    })
+}
+
+function saveKeys() {
+    fs.writeFile("keys.json", JSON.stringify(TaskID_Key), err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Done")
+        }
+    })
+}
+
+// read from file keys.json and tasks.json
+fs.readFile("keys.json", (err, data) => {
+    if (err) {
+        console.log(err)
+    } else {
+        TaskID_Key = JSON.parse(data);
+    }
+});
+
+fs.readFile("tasks.json", (err, data) => {  
+    if (err) {
+        console.log(err)
+    } else {
+        tasks = JSON.parse(data);
+    }
+});
+
 app.get("/", function main(req, res) {
     res.send({ "message": "Welcome to API-Tasks ;)" })
 })
@@ -33,11 +72,13 @@ app.get("/create", function test(req, res) {
     TaskID_Key[id] = key;
     tasks[id] = [];
     res.send({ id, key });
+    saveToFile()
 })
 
 app.get("/tasks/:id/:key/", function taskShow(req, res) {
     if (authentication(req, res)) {
         res.send(tasks[req.params.id])
+        saveToFile();
     }
 
 })
@@ -61,6 +102,7 @@ app.post("/addTask/:id/:key", function addTask(req, res) {
             )
         }
         res.send(tasks[req.params.id])
+        saveToFile();
     }
 })
 
@@ -73,6 +115,7 @@ app.get("/delete/:id/:key/:index", function deleteTask(req, res) {
         }
         tasks[req.params.id].splice(index, 1)
         res.send(tasks[req.params.id])
+        saveToFile();
     }
 })
 
