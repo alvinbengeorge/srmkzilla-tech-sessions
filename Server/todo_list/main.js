@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 
 
-// Task List ID and their "password"
+// Task List ID and their Key
 let TaskID_Key = {};
 // Task ID and tasks
 let tasks = {};
@@ -60,6 +60,18 @@ app.post("/addTask/:id/:key", function addTask(req, res) {
                 }
             )
         }
+        res.send(tasks[req.params.id])
+    }
+})
+
+app.get("/delete/:id/:key/:index", function deleteTask(req, res) {
+    if (authentication(req, res)) {
+        const index = req.params.index;
+        if (index>tasks[req.params.id]) {
+            res.send({"message": "Index value is higher than the length of the TaskList"})
+            return
+        }
+        tasks[req.params.id].splice(index, 1)
         res.send(tasks[req.params.id])
     }
 })
