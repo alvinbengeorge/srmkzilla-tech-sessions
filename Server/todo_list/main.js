@@ -5,13 +5,13 @@ app.use(express.json())
 
 
 // Task List ID and their "password"
-let tasklist_and_key = {};
+let TaskID_Key = {};
 // Task ID and tasks
 let tasks = {};
 
 function authentication(req, res) {
-    if (req.params.id in tasklist_and_key) {
-        if (tasklist_and_key[req.params.id] == req.params.key) {
+    if (req.params.id in TaskID_Key) {
+        if (TaskID_Key[req.params.id] == req.params.key) {
             return true;
         } else {
             res.send({ "message": "Wrong Key" })
@@ -30,17 +30,9 @@ app.get("/", function main(req, res) {
 app.get("/create", function test(req, res) {
     let id = nanoid()
     const key = nanoid()
-    while (id in tasklist_and_key) {
-        id = nanoid()
-    }
-    tasklist_and_key[id] = key;
+    TaskID_Key[id] = key;
     tasks[id] = [];
-    res.send(
-        {
-            'id': id,
-            'password': key
-        }
-    );
+    res.send({id, key});
 })
 
 app.get("/tasks/:id/:key/", function taskShow(req, res) {
@@ -57,7 +49,8 @@ app.post("/addTask/:id/:key", function addTask(req, res) {
             {
                 "task": req.body.task,
                 "time": Date.now(),
-                "completeBy": req.body.completeBy
+                "completeBy": req.body.completeBy,
+                "completed": false
             }
         )
         res.send(tasks[req.params.id])
