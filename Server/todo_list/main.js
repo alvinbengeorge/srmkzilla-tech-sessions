@@ -32,7 +32,7 @@ app.get("/create", function test(req, res) {
     const key = nanoid()
     TaskID_Key[id] = key;
     tasks[id] = [];
-    res.send({id, key});
+    res.send({ id, key });
 })
 
 app.get("/tasks/:id/:key/", function taskShow(req, res) {
@@ -44,17 +44,24 @@ app.get("/tasks/:id/:key/", function taskShow(req, res) {
 
 app.post("/addTask/:id/:key", function addTask(req, res) {
     console.log(Date.now())
-     if (authentication(req, res)) {
-        tasks[req.params.id].push(
-            {
-                "task": req.body.task,
-                "time": Date.now(),
-                "completeBy": req.body.completeBy,
-                "completed": false
-            }
-        )
+    if (authentication(req, res)) {
+        let taskBody = req.body
+        if (!Array.isArray(taskBody)) {
+            taskBody = [taskBody];
+        }
+        for (let i of taskBody) {
+            if (!i.task) { continue; }
+            tasks[req.params.id].push(
+                {
+                    "task": i.task,
+                    "time": Date.now(),
+                    "completeBy": i.completeBy,
+                    "completed": false
+                }
+            )
+        }
         res.send(tasks[req.params.id])
-     }
+    }
 })
 
 app.listen(8080)
