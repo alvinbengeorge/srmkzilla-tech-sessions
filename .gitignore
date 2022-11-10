@@ -1,3 +1,4 @@
 node_modules/
 keys.json
 tasks.json
+Server/movie/admin.json

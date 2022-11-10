@@ -119,5 +119,5 @@ app.get("/delete/:id/:key/:index", function deleteTask(req, res) {
     }
 })
 
-app.listen(8080)
+app.listen(8080, () => {console.log("Starting Server");});
 
