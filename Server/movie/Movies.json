@@ -77,22 +77,6 @@
 		"rating": 0
 	},
 	{
-		"id": 6,
-		"title": "Ratatouille",
-		"year": "2007",
-		"runtime": "111",
-		"genres": [
-			"Animation",
-			"Comedy",
-			"Family"
-		],
-		"director": "Brad Bird, Jan Pinkava",
-		"actors": "Patton Oswalt, Ian Holm, Lou Romano, Brian Dennehy",
-		"plot": "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant.",
-		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg",
-		"rating": 0
-	},
-	{
 		"id": 7,
 		"title": "City of God",
 		"year": "2002",
@@ -170,21 +154,7 @@
 		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTM1NjYyNTY5OV5BMl5BanBnXkFtZTcwMjgwNTMzMQ@@._V1_SX300.jpg",
 		"rating": 0
 	},
-	{
-		"id": 12,
-		"title": "Taxi Driver",
-		"year": "1976",
-		"runtime": "113",
-		"genres": [
-			"Crime",
-			"Drama"
-		],
-		"director": "Martin Scorsese",
-		"actors": "Diahnne Abbott, Frank Adu, Victor Argo, Gino Ardito",
-		"plot": "A mentally unstable Vietnam War veteran works as a night-time taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action, attempting to save a preadolescent prostitute in the process.",
-		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNGQxNDgzZWQtZTNjNi00M2RkLWExZmEtNmE1NjEyZDEwMzA5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-		"rating": 0
-	},
+	null,
 	{
 		"id": 13,
 		"title": "No Country for Old Men",
@@ -199,7 +169,7 @@
 		"actors": "Tommy Lee Jones, Javier Bardem, Josh Brolin, Woody Harrelson",
 		"plot": "Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.",
 		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTcwMTc5MTE1MQ@@._V1_SX300.jpg",
-		"rating": 0
+		"rating": 2
 	},
 	{
 		"id": 14,
@@ -1210,21 +1180,7 @@
 		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_SX300.jpg",
 		"rating": 0
 	},
-	{
-		"id": 79,
-		"title": "Chocolat",
-		"year": "2000",
-		"runtime": "121",
-		"genres": [
-			"Drama",
-			"Romance"
-		],
-		"director": "Lasse Hallström",
-		"actors": "Alfred Molina, Carrie-Anne Moss, Aurelien Parent Koenig, Antonio Gil",
-		"plot": "A woman and her daughter open a chocolate shop in a small French village that shakes up the rigid morality of the community.",
-		"posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA4MDI3NTQwMV5BMl5BanBnXkFtZTcwNjIzNDcyMQ@@._V1_SX300.jpg",
-		"rating": 0
-	},
+	null,
 	{
 		"id": 80,
 		"title": "Casino Royale",
